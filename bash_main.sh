@@ -8,11 +8,11 @@ save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 seed_start=1
 seed_end=1
 
-n_array=(5) 
-b_array=(8)
+n_array=(2 3 5 7 10) 
+b_array=(2 3 5)
 s_array=(1000)
 
-for neurons in ${n_array[@]}
+for neurons in ${n_array[@]} 
 do
 for b_layers in ${b_array[@]}
 do
