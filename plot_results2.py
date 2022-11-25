@@ -54,9 +54,9 @@ Z = 1
 
 for exponent_approx in range(1,11):
 
-    if(exponent_approx>=8):
+    if(exponent_approx>=4):
         xt  = 2**(exponent_approx)+1
-        x_tr = np.append(x_tr, Z*(xt +1)) #(2**exponent_approx - 2**6)*
+        x_tr = np.append(x_tr, (2**exponent_approx - 2**3)*Z*(xt +1)) #(2**exponent_approx - 2**6)*
     else:
         xt  = 2**(exponent_approx)+1
         x_tr = np.append(x_tr, Z*(xt +1))
@@ -87,7 +87,7 @@ for exponent_approx in range(1,11):
             y_axs = np.append(y_axs, d['NN_MSEs_test'])
             x_axs = np.append(x_axs, x)
             
-            if(exponent_approx==7):
+            if(exponent_approx==4):
 
                 marker = markers[counteri]    
 
