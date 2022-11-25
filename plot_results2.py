@@ -50,7 +50,7 @@ counteri = 0
 for exponent_approx in range(1,11):
 
     xt  = 2**(exponent_approx)+1
-    x_tr = np.append(x_tr, xt +1)
+    x_tr = np.append(x_tr, Z*(xt +1))
     #normalized_MSE[exponent_approx] = d['normalized_MSE']
 
     #color = next(ax._get_lines.prop_cycler)['color']
