@@ -8,8 +8,8 @@ save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 seed_start=1
 seed_end=1
 
-n_array=(2 3 5 7 10) 
-b_array=(2 3 5)
+n_array=(2 3 5 7 10 15) 
+b_array=(2 3 5 7)
 s_array=(1000)
 
 for neurons in ${n_array[@]} 
@@ -18,7 +18,7 @@ for b_layers in ${b_array[@]}
 do
 for samples in ${s_array[@]}
 do
-for exponent_approx in {1..5}
+for exponent_approx in {1..12}
 do
    for ((seed=$seed_start;seed<=$seed_end;seed++))
    do

@@ -20,23 +20,11 @@ exponent_truth  = 13
 epochs          = 10000
 b_layers        = 3
 neurons         = 500
+   
 
-    
-
-n_array=[100, 125, 250]
-b_array=[1, 2]
-s_array=[5000]
-
-n_array=[75, 100, 125]
-b_array=[1, 2,3,5,7]
-s_array=[5000]
-
-n_array=[3, 5 ,10, 25]
-b_array=[1, 2, 3, 5]
-s_array=[5000]
-
-n_array=[5] 
-b_array=[3, 5, 7, 8]
+e_array=[1,2,3,4,5,6,7,8,9,10,11] 
+n_array=[2, 3, 5,7,10,15]
+b_array=[2,3,5,7]
 s_array=[1000]
 
 func_str='EvansWebster1'
@@ -59,7 +47,7 @@ Z = 1
 
 counteri = 0 
 
-for exponent_approx in range(1,5):
+for exponent_approx in range(1,11):
 
     xt  = 2**(exponent_approx)+1
     x_tr = np.append(x_tr, xt +1)
@@ -67,6 +55,8 @@ for exponent_approx in range(1,5):
 
     #color = next(ax._get_lines.prop_cycler)['color']
     color = colors[exponent_approx-1]
+
+    counteri = counteri+1
     
 
     for neurons in n_array:
@@ -85,15 +75,14 @@ for exponent_approx in range(1,5):
             x = (b_layers-1)*(2*neurons*neurons) + 2*neurons*(1+zin)
             y_axs = np.append(y_axs, d['NN_MSEs_test'])
             x_axs = np.append(x_axs, x)
-
             
             #if(exponent_approx>3):
 
             marker = markers[counteri]
-            counteri = counteri+1
+            
 
             #plt.loglog(normalized_MSE)
-            plt.semilogy(normalized_MSE_NN,label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker="x")
+            plt.loglog(x,d['NN_MSEs_test'],label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker="x")
             #plt.loglog(x,normalized_MSE_NN,label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
             #plt.loglog(x,d['NN_MSEs_test'],label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
             #plt.semilogy(normalized_MSE_NN_obs,label='NN Train',color = color,linestyle="",marker="o")
@@ -102,7 +91,7 @@ for exponent_approx in range(1,5):
 
 
 plt.loglog(x_tr,y_axs_tr, color='k', label='Trap',linestyle="",marker="o")
-plt.legend() #loc='top right'
+#plt.legend() #loc='top right'
 plt.grid(linestyle = '--')
 plt.minorticks_on()
 plt.show()
