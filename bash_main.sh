@@ -8,9 +8,9 @@ save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 seed_start=1
 seed_end=1
 
-n_array=(25 50) 
+n_array=(10) 
 b_array=(5 7 10)
-s_array=(2500)
+s_array=(1000)
 
 for neurons in ${n_array[@]} 
 do

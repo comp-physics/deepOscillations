@@ -12,7 +12,7 @@ import sys
 import scipy.io as sio
 import shutil
 from scipy.integrate import odeint 
-
+import numpy as np
 
 # Bash Parameters
 # Integer Values
@@ -35,10 +35,6 @@ np.random.random(seed)
 points = 2**exponent_truth+1
 
 # I believe the functions we want to structure are I(x) = int_a^b g(x) S(rx) dx
-
-# Levin1_Seed_1_Samples_5000_X_13_4_epochs_100_blayers_7_neurons_125.mat'
-# Levin1_Seed_1_Samples_10_X_13_4_epochs_100_blayers_3_neurons_250.mat
-# Levin1_Seed_1_Samples_10_X_13_9_epochs_100_blayers_3_neurons_500.mat
 
 if func_str == 'Levin1':
     def oscil_func(x,nu,r): # Levin paper Bessel function
@@ -208,6 +204,7 @@ Is = np.zeros((samples,))
 
 approx_points = 2**(exponent_approx)+1
 xs      = np.linspace(a,b,approx_points)
+#xs = a+ (b-a)*np.random.random(approx_points)
 inds    = ((xs-1)*(points-1)).astype(int)
 
 Is = Integrate_funcs(xs,y[inds,:],samples)

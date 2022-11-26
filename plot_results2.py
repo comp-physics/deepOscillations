@@ -22,10 +22,11 @@ b_layers        = 3
 neurons         = 500
    
 
+
 e_array=[1,2,3,4,5,6,7,8,9,10,11] 
-n_array=[2, 3, 5,7,10,15]
-b_array=[2,3,5,7]
-s_array=[1000]
+n_array= [10]
+b_array= [5,7,10]
+s_array= [1000]
 
 func_str='EvansWebster1'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
@@ -54,12 +55,12 @@ Z = 1
 
 for exponent_approx in range(1,11):
 
-    if(exponent_approx>=4):
-        xt  = 2**(exponent_approx)+1
-        x_tr = np.append(x_tr, (2**exponent_approx - 2**3)*Z*(xt +1)) #(2**exponent_approx - 2**6)*
-    else:
-        xt  = 2**(exponent_approx)+1
-        x_tr = np.append(x_tr, Z*(xt +1))
+    #if(exponent_approx>=4):
+    #    xt  = 2**(exponent_approx)+1
+    #    x_tr = np.append(x_tr, (2**exponent_approx - 2**3)*Z*(xt +1)) #(2**exponent_approx - 2**6)*
+    #else:
+    xt  = 2**(exponent_approx)+1
+    x_tr = np.append(x_tr, Z*(xt +1))
 
 
 
@@ -87,14 +88,14 @@ for exponent_approx in range(1,11):
             y_axs = np.append(y_axs, d['NN_MSEs_test'])
             x_axs = np.append(x_axs, x)
             
-            if(exponent_approx==4):
+            #if(exponent_approx==4):
 
-                marker = markers[counteri]    
+            marker = markers[counteri]    
 
                 #plt.loglog(normalized_MSE)
 
                 #ax.set_prop_cycle(color=[scalarMap.to_rgba(exponent_approx) for exponent_approx in range(NUM_COLORS)])
-                plt.loglog(x,d['NN_MSEs_test'],label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
+            plt.loglog(x,d['NN_MSEs_test'],label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
                 #plt.loglog(x,normalized_MSE_NN,label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
                 #plt.loglog(x,d['NN_MSEs_test'],label='NN Test'+''+str(neurons)+'x'+str(b_layers), color = color, linestyle="",marker= marker)
                 #plt.semilogy(normalized_MSE_NN_obs,label='NN Train',color = color,linestyle="",marker="o")
@@ -106,7 +107,7 @@ for exponent_approx in range(1,11):
 
 plt.loglog(x_tr,y_axs_tr, color='k', label='Trap',linestyle="",marker="o")
 plt.xlim([0.1e1,1e7])
-#plt.legend() #loc='top right'
+plt.legend() #loc='top right'
 plt.grid(linestyle = '--')
 plt.minorticks_on()
 plt.show()
