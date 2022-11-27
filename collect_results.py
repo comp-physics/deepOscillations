@@ -73,8 +73,8 @@ if Second:
 
     e_array=[1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [10]
-    b_array= [5,7,10]
-    s_array= [1000]
+    b_array= [10]
+    s_array= [10000]
 
     for func_str in func_strs:
         normalized_MSE = np.zeros((np.size(e_array),np.size(n_array),np.size(b_array),np.size(s_array)))

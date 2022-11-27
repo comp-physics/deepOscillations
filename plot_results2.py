@@ -15,7 +15,7 @@ import shutil
 
 # Plotting Code
 seed            = 1
-samples         = 1000
+samples         = 10000
 exponent_truth  = 13
 epochs          = 10000
 b_layers        = 3
@@ -25,8 +25,8 @@ neurons         = 500
 
 e_array=[1,2,3,4,5,6,7,8,9,10,11] 
 n_array= [10]
-b_array= [5,7,10]
-s_array= [1000]
+b_array= [10]
+s_array= [10000]
 
 func_str='EvansWebster1'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'

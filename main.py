@@ -13,6 +13,7 @@ import scipy.io as sio
 import shutil
 from scipy.integrate import odeint 
 import numpy as np
+import random
 
 # Bash Parameters
 # Integer Values
@@ -212,7 +213,7 @@ Is = (Is - I_mean) / I_max
 
 Idiff = I-Is
 # Error Metric
-normalized_MSE = np.mean(Idiff**2, axis = 0) / np.mean(I**2)
+normalized_MSE = np.mean(Idiff**2, axis = 0)/np.mean(I**2)
 
 def Xs(a,b,col_points,total_points):
     xs = np.linspace(a,b,col_points)
@@ -222,7 +223,7 @@ def Xs(a,b,col_points,total_points):
 xs , inds= Xs(a,b,approx_points,points)
 
 #%% DeepONet implementation
-def DeepONet(samples, split, y, I, inds, neurons, epochs, b_layers):
+def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs, b_layers):
     
     import deepxde as dde
 
@@ -237,12 +238,34 @@ def DeepONet(samples, split, y, I, inds, neurons, epochs, b_layers):
         return np.mean(error)
 
     
-    X_train0 = np.transpose(y[inds,0:split])
+    arrays1 = []
+
+    for j in range(split):
+        v = np.random.random(approx_points)
+        v2 = ((v)*(points-1)).astype(int)
+        inds1 = np.sort(v2)
+        arrays1.append(y[inds1,j])
+
+    X_train0 = np.stack(arrays1, axis=0)
+
+
+    #X_train0 = np.transpose(y[inds,0:split])
     y_train = I[0:split,].reshape(split,1)
     X_train1 = np.ones(np.size(y_train)).reshape(split,1)
+
+
+    arrays2 = []
+
+    for j in range(samples-split):
+        v = np.random.random(approx_points)
+        v2 = ((v)*(points-1)).astype(int)
+        inds2 = np.sort(v2)
+        arrays2.append(y[inds2,j])
+
+    X_test0 = np.stack(arrays2, axis=0)
     
     
-    X_test0 = np.transpose(y[inds,split:samples])
+    #X_test0 = np.transpose(y[inds,split:samples])
     y_test = I[split:samples,].reshape(samples-split,1)
     X_test1 = np.ones(np.size(y_test)).reshape(samples-split,1)
     
@@ -316,7 +339,7 @@ def DeepONet(samples, split, y, I, inds, neurons, epochs, b_layers):
 #%%
 
 split = int(samples*0.75)
-NN_MSEs_test = DeepONet(samples, split, y/np.max(np.abs(y)) , I, inds, neurons, epochs, b_layers)
+NN_MSEs_test = DeepONet(samples, split, points, approx_points, y/np.max(np.abs(y)) , I, inds, neurons, epochs, b_layers)
 
 
 sio.savemat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
