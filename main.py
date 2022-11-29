@@ -237,35 +237,14 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
         error = np.ravel( (((y_true - y_pred) / y_true) ** 2) ** (1/2) )
         return np.mean(error)
 
-    
-    arrays1 = []
-
-    for j in range(split):
-        v = np.random.random(approx_points)
-        v2 = ((v)*(points-1)).astype(int)
-        inds1 = np.sort(v2)
-        arrays1.append(y[inds1,j])
-
-    X_train0 = np.stack(arrays1, axis=0)
-
-
-    #X_train0 = np.transpose(y[inds,0:split])
+    X_train0 = np.transpose(y[inds,0:split])
     y_train = I[0:split,].reshape(split,1)
     X_train1 = np.ones(np.size(y_train)).reshape(split,1)
 
 
-    arrays2 = []
-
-    for j in range(samples-split):
-        v = np.random.random(approx_points)
-        v2 = ((v)*(points-1)).astype(int)
-        inds2 = np.sort(v2)
-        arrays2.append(y[inds2,j])
-
-    X_test0 = np.stack(arrays2, axis=0)
     
     
-    #X_test0 = np.transpose(y[inds,split:samples])
+    X_test0 = np.transpose(y[inds,split:samples])
     y_test = I[split:samples,].reshape(samples-split,1)
     X_test1 = np.ones(np.size(y_test)).reshape(samples-split,1)
     
