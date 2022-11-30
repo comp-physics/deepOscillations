@@ -72,8 +72,8 @@ if Second:
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
     e_array=[1,2,3,4,5,6,7,8,9,10,11] 
-    n_array= [10]
-    b_array= [10]
+    n_array= [2,3,5,10,15]
+    b_array= [2,3,5,7]
     s_array= [10000]
 
     for func_str in func_strs:
