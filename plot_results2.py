@@ -29,8 +29,8 @@ b_array= [2,3,5,7]
 s_array= [10000]
 
 e_array=[1,2,3,4,5,6,7,8,9,10,11] 
-n_array= [2,3,5]
-b_array= [7,10,15,20]
+n_array= [2,3,5,6,7]
+b_array= [2,3,4,5]
 s_array= [10000]
 
 func_str='EvansWebster1'
@@ -71,12 +71,15 @@ for exponent_approx in range(1,11):
     #normalized_MSE[exponent_approx] = d['normalized_MSE']
 
     #color = next(ax._get_lines.prop_cycler)['color']
-    color = colors[exponent_approx-1]
+    #color = colors[exponent_approx-1]
 
     counteri = 0 
     for neurons in n_array:
         
         for b_layers in b_array:
+
+            color = colors[b_layers]
+            
         # String Values
             save_str = func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
             d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
