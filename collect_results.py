@@ -13,8 +13,8 @@ import sys
 import scipy.io as sio
 import shutil
 
-First=False
-Second=True
+First=True
+Second=False
 Third=False
 Fourth=False
 
@@ -23,9 +23,9 @@ if First:
     seed            = 1
     exponent_truth  = 13
     epochs          = 10000
-    func_str='Levin1'
-    #save_dir='./results/'
-    save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
+    func_str= 'Levin1'
+    save_dir='./results/'
+    save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
     e_array=[4,5,6,7,8,9,10]
     n_array=[125, 250, 500]
@@ -33,9 +33,10 @@ if First:
     s_array=[100, 500, 1000]
     e_array=[1,2,3,4]
 
-    n_array=[2, 3, 5,7,10]
-    b_array=[2,3,5]
-    s_array=[1000]
+    e_array= [1,2,3,4,5,6,7,8,9,10,11] 
+    n_array= [2,3,5,6,7]
+    b_array= [2,3,4,5]
+    s_array= [10000]
 
     # Levin1_Seed_1_Samples_5000_X_13_4_epochs_100_blayers_7_neurons_125.mat'
 
@@ -51,15 +52,16 @@ if First:
                 b_layers = b_array[k]
                 for l in range(0,np.size(s_array)):
                     samples = s_array[l]
+                    #d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test', 'NN_MSEs_train'])
                     d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test', 'NN_MSEs_train'])
                     # Error Metric
                     normalized_MSE[i,j,k,l] = d['normalized_MSE']
                     normalized_MSE_NN[i,j,k,l] = d['NN_MSEs_test']
-                    normalized_MSE_NN_obs[i,j,k,l] = d['NN_MSEs_train']
+                    #normalized_MSE_NN_obs[i,j,k,l] = d['NN_MSEs_train']
 
 
-    sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN_obs':normalized_MSE_NN_obs, 'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
-
+    #sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN_obs':normalized_MSE_NN_obs, 'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
+    sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
 
 if Second:
     # Collecting Data Code
