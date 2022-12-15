@@ -13,10 +13,10 @@ import sys
 import scipy.io as sio
 import shutil
 
-First=True
+First=False
 Second=False
 Third=False
-Fourth=False
+Fourth=True
 
 if First:
     # Collecting Data Code
@@ -146,23 +146,18 @@ if Fourth:
     seed            = 1
     exponent_truth  = 13
     epochs          = 10000
-    #func_strs=['EvansWebster1', 'EvansWebster3', 'EvansWebster6']
-    #save_dir='./results/'
-    #save_dir='/scratch/epickeri/Oscillations/results/'
+
+    seed            = 1
+    exponent_truth  = 13
+    epochs          = 10000
     func_strs=['RP']
+    save_dir='./results/'
+    save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
-    #func_str='RP'
-    #save_dir='./results/'
-    save_dir= '/Users/anshumansinha/Desktop/Project/results2/'
-
-    n_array=[8, 16, 25]
-    b_array=[7]
-    s_array=[10, 50, 100, 200, 500, 1000]
-    e_array=[4,5,6,7,8,9,10,11]
-
-    n_array=[125]
-    b_array=[3]
-    s_array=[10000]
+    e_array= [1,2,3,4,5,6,7,8,9,10,11] 
+    n_array= [2,3,5,6,7]
+    b_array= [2,3,4,5]
+    s_array= [10000]
 
 
     for func_str in func_strs:
@@ -181,8 +176,9 @@ if Fourth:
                         # Error Metric
                         normalized_MSE[i,j,k,l] = d['normalized_MSE']
                         normalized_MSE_NN[i,j,k,l] = d['NN_MSEs_test']
-                        normalized_MSE_NN_obs[i,j,k,l] = d['NN_MSEs_train']
+                        #normalized_MSE_NN_obs[i,j,k,l] = d['NN_MSEs_train']
 
 
-        sio.savemat(func_str+'_2_Errors.mat', {'normalized_MSE_NN_obs':normalized_MSE_NN_obs, 'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
+        #sio.savemat(func_str+'_2_Errors.mat', {'normalized_MSE_NN_obs':normalized_MSE_NN_obs, 'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
+        sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
 
