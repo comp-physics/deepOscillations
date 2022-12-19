@@ -71,14 +71,14 @@ for exponent_approx in range(1,11):
     #normalized_MSE[exponent_approx] = d['normalized_MSE']
 
     #color = next(ax._get_lines.prop_cycler)['color']
-    color = colors[exponent_approx-1]
+    #color = colors[exponent_approx-1]
 
     counteri = 0 
     for neurons in n_array:
         
         for b_layers in b_array:
 
-            #color = colors[b_layers]
+            color = colors[b_layers]
             
         # String Values
             save_str = func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
