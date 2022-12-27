@@ -185,10 +185,23 @@ else:
     
 
 # Define the Trapezoidal Integrating Function
+# def Integrate_funcs(x,y,samples):
+#    I = np.zeros((samples,))
+#    for i in range(0,samples):
+#        I[i] = np.trapz(y[:,i], x)
+#    return I
+
+# Define the Trapezoidal Integrating Function
 def Integrate_funcs(x,y,samples):
     I = np.zeros((samples,))
+    len(x)
+    dx = (x[len(x)-1] - x[0])/(len(x)-2)
+    
     for i in range(0,samples):
-        I[i] = np.trapz(y[:,i], x)
+      I_i = 0
+      for m in range(1,len(x)-1):
+        I_i+= y[m,i]*dx
+      I[i] = I_i
     return I
 
 # Integrate the functions
