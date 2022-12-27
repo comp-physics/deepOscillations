@@ -13,10 +13,10 @@ import sys
 import scipy.io as sio
 import shutil
 
-First=False
+First=True
 Second=False
 Third=False
-Fourth=True
+Fourth=False
 
 if First:
     # Collecting Data Code
@@ -26,12 +26,6 @@ if First:
     func_str= 'Levin1'
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
-
-    e_array=[4,5,6,7,8,9,10]
-    n_array=[125, 250, 500]
-    b_array=[3, 5, 7]
-    s_array=[100, 500, 1000]
-    e_array=[1,2,3,4]
 
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
