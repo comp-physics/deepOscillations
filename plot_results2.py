@@ -33,7 +33,7 @@ n_array= [2,3,5,6,7]
 b_array= [2,3,4,5]
 s_array= [10000]
 
-func_str='RP'
+func_str='Levin1'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
 
 normalized_MSE = np.zeros(12,)

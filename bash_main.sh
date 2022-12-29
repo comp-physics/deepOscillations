@@ -8,7 +8,7 @@ save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 seed_start=1
 seed_end=1
 
-n_array=(2 3 5 6 7) 
+n_array=(6 7) 
 b_array=(2 3 4 5)
 s_array=(10000)
 
