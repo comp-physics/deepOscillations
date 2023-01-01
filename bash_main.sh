@@ -22,7 +22,7 @@ for exponent_approx in {1..12}
 do
    for ((seed=$seed_start;seed<=$seed_end;seed++))
    do
-  	python3 ./main.py $seed $samples $exponent_truth $exponent_approx $epochs $b_layers $neurons $func_str $save_dir &
+  	python3 ./main1.py $seed $samples $exponent_truth $exponent_approx $epochs $b_layers $neurons $func_str $save_dir &
    done
    wait
 done
