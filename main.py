@@ -202,21 +202,21 @@ elif func_str == 'sinx':
 else:
     print('Functions not defined for integration')
     
-
-# Define the Trapezoidal Integrating Function
-# def Integrate_funcs(x,y,samples):
-#    I = np.zeros((samples,))
-#    for i in range(0,samples):
-#        I[i] = np.trapz(y[:,i], x)
-#    return I
-
-# Define the Trapezoidal Integrating Function
 # Define the Trapezoidal Integrating Function
 def Integrate_funcs(x,y,samples):
     I = np.zeros((samples,))
     for i in range(0,samples):
-        I[i] = integrate.simpson(y[:,i], x)
+        I[i] = np.trapz(y[:,i], x)
     return I
+
+# Define the Trapezoidal Integrating Function
+# Define the Trapezoidal Integrating Function
+
+#def Integrate_funcs(x,y,samples):
+#    I = np.zeros((samples,))
+#    for i in range(0,samples):
+#        I[i] = integrate.simpson(y[:,i], x)
+#    return I
 
 #def Integrate_funcs(x,y,samples):
 #    I = np.zeros((samples,))
