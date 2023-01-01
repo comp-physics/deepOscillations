@@ -32,6 +32,11 @@ if First:
     b_array= [2,3,4,5]
     s_array= [10000]
 
+    e_array= [1,2,3,4,5,6,7,8,9,10,11] 
+    n_array= [1]
+    b_array= [1]
+    s_array= [10]
+
     # Levin1_Seed_1_Samples_5000_X_13_4_epochs_100_blayers_7_neurons_125.mat'
 
     normalized_MSE = np.zeros((np.size(e_array),np.size(n_array),np.size(b_array),np.size(s_array)))

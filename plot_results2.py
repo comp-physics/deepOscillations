@@ -15,7 +15,7 @@ import shutil
 
 # Plotting Code
 seed            = 1
-samples         = 10000
+samples         = 10
 exponent_truth  = 13
 epochs          = 10000
 b_layers        = 3
@@ -32,6 +32,10 @@ e_array=[1,2,3,4,5,6,7,8,9,10,11]
 n_array= [2,3,5,6,7]
 b_array= [2,3,4,5]
 s_array= [10000]
+
+n_array= [1]
+b_array= [1]
+s_array= [10]
 
 func_str='Levin1'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'

@@ -181,54 +181,15 @@ elif func_str == 'Levin_Breaker1':
     # traingle functions
     # heavyside functions
     # w'(x) /= A(x) w(x)
-
-elif func_str == 'sinx':
-    def oscil_func(x,k): # Levin paper Bessel function
-        y = np.sin(k*x)
-        return y 
-    
-    # Create Bounds for integegration for the Levin paper
-    a = 1
-    b = 2
-    x = np.linspace(a,b,points)
-
-    # Calculate the function
-    y = np.zeros((points,samples))
-
-    for i in range(0,samples):
-        k = np.random.random()*10+1
-        y[:,i] =oscil_func(x,k)
-
 else:
     print('Functions not defined for integration')
     
-
-# Define the Trapezoidal Integrating Function
-# def Integrate_funcs(x,y,samples):
-#    I = np.zeros((samples,))
-#    for i in range(0,samples):
-#        I[i] = np.trapz(y[:,i], x)
-#    return I
-
-# Define the Trapezoidal Integrating Function
 # Define the Trapezoidal Integrating Function
 def Integrate_funcs(x,y,samples):
     I = np.zeros((samples,))
     for i in range(0,samples):
-        I[i] = integrate.simpson(y[:,i], x)
+        I[i] = np.trapz(y[:,i], x)
     return I
-
-#def Integrate_funcs(x,y,samples):
-#    I = np.zeros((samples,))
-#    len(x)
-#    dx = (x[len(x)-1] - x[0])/(len(x)-2)
-#    
-#    for i in range(0,samples):
-#      I_i = 0
-#      for m in range(1,len(x)-1):
-#        I_i+= y[m,i]*dx
-#      I[i] = I_i
-#    return I
 
 # Integrate the functions
 I = Integrate_funcs(x,y,samples)
@@ -261,104 +222,8 @@ def Xs(a,b,col_points,total_points):
 
 xs , inds= Xs(a,b,approx_points,points)
 
-#%% DeepONet implementation
-def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs, b_layers):
-    
-    import deepxde as dde
-
-    # define error metrics
-
-    def mean_squared_error(y_true, y_pred):
-        error = np.ravel((y_true - y_pred) ** 2)
-        return np.mean(error)
-    
-    def mean_relative_error(y_true, y_pred):
-        error = np.ravel( (((y_true - y_pred) / y_true) ** 2) ** (1/2) )
-        return np.mean(error)
-
-    X_train0 = np.transpose(y[inds,0:split])
-    y_train = I[0:split,].reshape(split,1)
-    X_train1 = np.ones(np.size(y_train)).reshape(split,1)
-
-
-    
-    
-    X_test0 = np.transpose(y[inds,split:samples])
-    y_test = I[split:samples,].reshape(samples-split,1)
-    X_test1 = np.ones(np.size(y_test)).reshape(samples-split,1)
-    
-    X_train = (X_train0, X_train1)
-    X_test = (X_test0, X_test1)
-
-    data = dde.data.Triple(
-        X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test
-    )
-    
-    m       = np.size(y[inds,0]) #604*2
-    print(m)
-
-    dim_x   = 1
-    lr      = 0.0001
-    t_layers = 1
-    activation = "relu"
-    branch      = [neurons]*(b_layers+1)
-    branch[0]   = m
-    trunk       = [neurons]*(t_layers+1)
-    trunk[0]    = dim_x
-
-    net = dde.maps.DeepONet(
-        branch,
-        trunk,
-        "relu",
-        "Glorot normal",
-        use_bias=True,
-        stacked=False,
-    ) #   "relu","Glorot normal",  # batch_size = 
-    
-    
-    model = dde.Model(data, net)
-    model.compile("adam", lr=lr, metrics=[mean_squared_error])
-    checker = dde.callbacks.ModelCheckpoint(
-        "/Users/anshumansinha/Desktop/Project/model/"+save_str+"model.ckpt", save_better_only=False, period=100
-    )
-
-    # Training for different input points from 2^4 to 2^11.
-    # Trainng will be done for 10,000 epochs.
-    # isplot = True will generate 10 plots for each simulation.
-
-    
-    losshistory, train_state = model.train(epochs=epochs, callbacks=[checker]) #Training Model batch_size = 10000
-    # For plotting the residuals and the training history: isplot=True will plot
-
-    #if exponent_approx==2:
-    #    dde.saveplot(losshistory, train_state, issave=True, isplot=True)
-    #else:
-    dde.saveplot(losshistory, train_state, issave=True, isplot=False)
-
-    NN_obs = model.predict(X_train)
-    NN_test = model.predict(X_test)
-    NN_obs_Idiff = NN_obs.reshape(split,) -  I[0:split,]
-    NN_test_Idiff = NN_test.reshape(samples-split,) -  I[split:samples,]
-    
-    normalized_MSE_NN = np.mean(NN_test_Idiff**2) / np.mean(I[split:samples]**2)
-    normalized_MSE_NN_obs = np.mean(NN_obs_Idiff**2) / np.mean(I[0:split]**2)
-
-    # Remove the temporary folder for saving DeepONet files
-    # Update to only remove the files associated with it...
-    # shutil.rmtree('./model/')
-
-    print('neuron',neurons)
-    print('exponent_approx',exponent_approx)
-    
-    print(normalized_MSE_NN)
-    #return normalized_MSE_NN, normalized_MSE_NN_obs
-    return normalized_MSE_NN
-
-#%%
-
 split = int(samples*0.75)
-NN_MSEs_test = DeepONet(samples, split, points, approx_points, y/np.max(np.abs(y)) , I, inds, neurons, epochs, b_layers)
-
+NN_MSEs_test = 0
 
 sio.savemat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
             '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', 
