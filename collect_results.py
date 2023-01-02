@@ -23,7 +23,8 @@ if First:
     seed            = 1
     exponent_truth  = 13
     epochs          = 10000
-    func_str= 'Levin1'
+    #func_str= 'Levin1'
+    func_str= 'sinx' 
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 

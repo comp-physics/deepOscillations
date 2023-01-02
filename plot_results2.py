@@ -15,7 +15,7 @@ import shutil
 
 # Plotting Code
 seed            = 1
-samples         = 10
+samples         = 10000
 exponent_truth  = 13
 epochs          = 10000
 b_layers        = 3
@@ -37,7 +37,7 @@ n_array= [1]
 b_array= [1]
 s_array= [10]
 
-func_str='Levin1'
+func_str='sinx'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
 
 normalized_MSE = np.zeros(12,)
