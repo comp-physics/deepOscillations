@@ -16,6 +16,7 @@ import shutil
 # Plotting Code
 seed            = 1
 samples         = 10000
+samples2         = 10
 exponent_truth  = 13
 epochs          = 10000
 b_layers        = 3
@@ -33,9 +34,11 @@ n_array= [2,3,5,6,7]
 b_array= [2,3,4,5]
 s_array= [10000]
 
-n_array= [1]
-b_array= [1]
-s_array= [10]
+n_array2= 1
+b_array2= 1
+
+itr = 'mid'
+#itr = 'trapz'
 
 func_str='sinx'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
@@ -49,6 +52,7 @@ ax = plt.gca()
 y_axs = np.zeros(1,)
 x_axs = np.zeros(1,)
 y_axs_tr = np.zeros(1,)
+y_axs_tr2 = np.zeros(1,)
 x_tr = np.zeros(1,)
 
 markers = ["o" , "x" , "D" , "s", "^", "*" ,  "o" , "x" , "D" , "s", "^", "*"]
@@ -88,9 +92,12 @@ for exponent_approx in range(1,11):
             save_str = func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
             d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
                     '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat')
+            p = sio.loadmat(save_dir+func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples2)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
+                    '_epochs_'+str(epochs)+'_blayers_'+str(b_array2)+'_neurons_'+str(n_array2)+'.mat')
             # Error Metric
             
             normalized_MSE[exponent_approx] = d['normalized_MSE']
+            normalized_MSE2[exponent_approx] = p['normalized_MSE']
             normalized_MSE_NN[exponent_approx] = d['NN_MSEs_test'] 
             #normalized_MSE_NN_obs[exponent_approx] = d['NN_MSEs_train']
             zin = 2**(exponent_approx)+1
@@ -120,9 +127,11 @@ for exponent_approx in range(1,11):
         counteri = counteri+1
 
     y_axs_tr = np.append(y_axs_tr, d['normalized_MSE'])
+    y_axs_tr2 = np.append(y_axs_tr2, p['normalized_MSE'])
 
 
 plt.loglog(x_tr,y_axs_tr, color='k', label='Trap',linestyle="",marker="o")
+plt.loglog(x_tr,y_axs_tr2, color='k', label='Trap',linestyle="",marker="o")
 plt.xlim([0.1e1,1e7])
 #plt.legend() #loc='top right'
 plt.grid(linestyle = '--')
