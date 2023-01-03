@@ -46,6 +46,11 @@ save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)
 normalized_MSE_NN_obs = np.zeros(12,)
+
+normalized_MSE2 = np.zeros(12,)
+normalized_MSE_NN2 = np.zeros(12,)
+normalized_MSE_NN_obs2 = np.zeros(12,)
+
 import itertools
 ax = plt.gca()
 
@@ -131,7 +136,7 @@ for exponent_approx in range(1,11):
 
 
 plt.loglog(x_tr,y_axs_tr, color='k', label='Trap',linestyle="",marker="o")
-plt.loglog(x_tr,y_axs_tr2, color='k', label='Trap',linestyle="",marker="o")
+plt.loglog(x_tr,y_axs_tr2, color='r', label='mid',linestyle="",marker="o")
 plt.xlim([0.1e1,1e7])
 #plt.legend() #loc='top right'
 plt.grid(linestyle = '--')
