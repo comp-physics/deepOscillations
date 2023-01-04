@@ -29,7 +29,8 @@ neurons         = int(sys.argv[7])
 # String Values
 func_str = sys.argv[8]
 save_dir = sys.argv[9]
-itr = 'mid'
+#itr = 'mid'
+itr = 'simp'
 #itr = 'trapz'
 
 save_str = func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
@@ -205,11 +206,18 @@ else:
     print('Functions not defined for integration')
     
 # Define the Trapezoidal Integrating Function
+#def Integrate_funcs(x,y,samples):
+#    I = np.zeros((samples,))
+#    for i in range(0,samples):
+#        I[i] = np.trapz(y[:,i], x)
+#    return I
+
 def Integrate_funcs(x,y,samples):
     I = np.zeros((samples,))
     for i in range(0,samples):
-        I[i] = np.trapz(y[:,i], x)
+        I[i] = integrate.simpson(y[:,i], x)
     return I
+
 
 # Integrate the functions
 I = Integrate_funcs(x,y,samples)
