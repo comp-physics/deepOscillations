@@ -3,7 +3,7 @@ exponent_truth=13
 exponent_approx=4
 epochs=10000
 
-func_str='sinx'
+func_str='Levin2'
 save_dir='/Users/anshumansinha/Desktop/Project/results/'
 seed_start=1
 seed_end=1

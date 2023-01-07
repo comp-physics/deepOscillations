@@ -30,8 +30,8 @@ neurons         = int(sys.argv[7])
 func_str = sys.argv[8]
 save_dir = sys.argv[9]
 
-itr = 'mid'
-#itr = 'trapz'
+#itr = 'mid'
+itr = 'trapz'
 
 save_str = func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
 
