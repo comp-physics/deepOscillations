@@ -333,7 +333,7 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     #if exponent_approx==2:
     #    dde.saveplot(losshistory, train_state, issave=True, isplot=True)
     #else:
-    dde.saveplot(losshistory, train_state, issave=True, isplot=False)
+    #dde.saveplot(losshistory, train_state, issave=True, isplot=False)
 
     NN_obs = model.predict(X_train)
     NN_test = model.predict(X_test)
