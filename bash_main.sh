@@ -12,9 +12,9 @@ n_array=(2 3 5 6 7)
 b_array=(2 3 4 5)
 s_array=(10000)
 
-#n_array=(1) 
-#b_array=(1)
-#s_array=(10)
+n_array=(1) 
+b_array=(1)
+s_array=(10)
 
 
 for neurons in ${n_array[@]} 
