@@ -37,10 +37,11 @@ s_array= [10000]
 n_array2= 1
 b_array2= 1
 
-itr = 'mid'
+itr1 = 'trapz'
+itr2 = 'mid'
 #itr = 'trapz'
 
-func_str='sinx'
+func_str='Levin2'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
 
 normalized_MSE = np.zeros(12,)
@@ -96,9 +97,10 @@ for exponent_approx in range(1,11):
             
         # String Values
             save_str = func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
-            d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
-                    '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat')
-            p = sio.loadmat(save_dir+func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples2)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
+            #d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
+            #        '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat')
+            d = sio.loadmat(save_dir + func_str+ itr1 +'_'+ str(exponent_approx)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test'])
+            p = sio.loadmat(save_dir+func_str+itr2+'_Seed_'+str(seed)+'_Samples_'+str(samples2)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
                     '_epochs_'+str(epochs)+'_blayers_'+str(b_array2)+'_neurons_'+str(n_array2)+'.mat')
             # Error Metric
             

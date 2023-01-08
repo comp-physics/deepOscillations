@@ -24,7 +24,7 @@ if First:
     exponent_truth  = 13
     epochs          = 10000
     #func_str= 'Levin1'
-    func_str= 'sinx' 
+    func_str= 'Levin2' 
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
