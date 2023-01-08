@@ -57,7 +57,7 @@ if First:
                 for l in range(0,np.size(s_array)):
                     samples = s_array[l]
                     #d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test', 'NN_MSEs_train'])
-                    d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test', 'NN_MSEs_train'])
+                    d = sio.loadmat(save_dir + func_str+ itr +'_'+ str(exponent_approx)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test'])
                     p = sio.loadmat(save_dir+func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(s_array2)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_array2)+'_neurons_'+str(n_array2)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test', 'NN_MSEs_train'])
                     # Error Metric
                     normalized_MSE[i,j,k,l] = d['normalized_MSE']
@@ -68,6 +68,7 @@ if First:
 
 
     #sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN_obs':normalized_MSE_NN_obs, 'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
+
     sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN':normalized_MSE_NN, 'normalized_MSE':normalized_MSE})
     sio.savemat(func_str+'_Errors.mat', {'normalized_MSE_NN2':normalized_MSE_NN2, 'normalized_MSE2':normalized_MSE2})
 
