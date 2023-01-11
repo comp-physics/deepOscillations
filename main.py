@@ -30,8 +30,8 @@ neurons         = int(sys.argv[7])
 func_str = sys.argv[8]
 save_dir = sys.argv[9]
 
-#itr = 'mid'
-itr = 'trapz'
+itr = 'mid'
+#itr = 'trapz'
 
 save_str = func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
 
@@ -206,14 +206,14 @@ else:
     print('Functions not defined for integration')
     
 # Define the Trapezoidal Integrating Function
-def Integrate_funcs(x,y,samples):
-    I = np.zeros((samples,))
-    for i in range(0,samples):
-        I[i] = np.trapz(y[:,i], x)
-    return I
+#def Integrate_funcs(x,y,samples):
+#    I = np.zeros((samples,))
+#    for i in range(0,samples):
+#        I[i] = np.trapz(y[:,i], x)
+#    return I
 
 # Define the Trapezoidal Integrating Function
-# Define the Trapezoidal Integrating Function
+# Define the Simpson Integrating Function
 
 #def Integrate_funcs(x,y,samples):
 #    I = np.zeros((samples,))
@@ -221,17 +221,19 @@ def Integrate_funcs(x,y,samples):
 #        I[i] = integrate.simpson(y[:,i], x)
 #    return I
 
-#def Integrate_funcs(x,y,samples):
-#    I = np.zeros((samples,))
-#    len(x)
-#    dx = (x[len(x)-1] - x[0])/(len(x)-2)
-#    
-#    for i in range(0,samples):
-#      I_i = 0
-#      for m in range(1,len(x)-1):
-#        I_i+= y[m,i]*dx
-#      I[i] = I_i
-#    return I
+# Define the Midpoint Integrating Function
+
+def Integrate_funcs(x,y,samples):
+    I = np.zeros((samples,))
+    len(x)
+    dx = (x[len(x)-1] - x[0])/(len(x)-2)
+    
+    for i in range(0,samples):
+      I_i = 0
+      for m in range(1,len(x)-1):
+        I_i+= y[m,i]*dx
+      I[i] = I_i
+    return I
 
 # Integrate the functions
 I = Integrate_funcs(x,y,samples)
