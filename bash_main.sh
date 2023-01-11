@@ -3,7 +3,7 @@ exponent_truth=13
 exponent_approx=4
 epochs=10000
 
-func_str='Levin1'
+func_str='EvansWebster6'
 save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 seed_start=1
 seed_end=1
