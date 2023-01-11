@@ -41,7 +41,7 @@ itr1 = 'trapz'
 itr2 = 'mid'
 #itr = 'trapz'
 
-func_str='Levin2'
+func_str='Levin1'
 save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
 
 normalized_MSE = np.zeros(12,)
