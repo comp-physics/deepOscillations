@@ -28,6 +28,10 @@ if First:
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
+    func_str= 'EvansWebster6'
+    save_dir='./results/'
+    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW6/'
+
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
     b_array= [2,3,4,5]
@@ -37,7 +41,7 @@ if First:
     n_array2= 1
     b_array2= 1
     s_array2= 10
-    itr1 = 'trapz'
+    itr1 = 'mid'
     itr2 = 'mid'
     #itr = 'trapz'
 
@@ -79,9 +83,9 @@ if Second:
     exponent_truth  = 13
     epochs          = 10000
     # func_strs=['EvansWebster1', 'EvansWebster3', 'EvansWebster6']
-    func_strs=['EvansWebster1']
+    func_strs=['EvansWebster6']
     save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/results3/'
+    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW6'
     
 
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 

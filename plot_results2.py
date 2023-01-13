@@ -37,12 +37,12 @@ s_array= [10000]
 n_array2= 1
 b_array2= 1
 
-itr1 = 'trapz'
+itr1 = 'mid'
 itr2 = 'mid'
 #itr = 'trapz'
 
-func_str='Levin1'
-save_dir= '/Users/anshumansinha/Desktop/Project/results3/'
+func_str='EvansWebster6'
+save_dir= '/Users/anshumansinha/Desktop/Project/Res/Results3_EW6/'
 
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)
