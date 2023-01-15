@@ -26,7 +26,7 @@ exponent_truth  = int(sys.argv[3])
 exponent_approx = int(sys.argv[4])
 epochs          = int(sys.argv[5])
 b_layers        = int(sys.argv[6])
-neurons         = int(sys.argv[7])
+neurons         = int(sys.argv[7]) #number of neurons
 
 # String Values
 func_str = sys.argv[8]
