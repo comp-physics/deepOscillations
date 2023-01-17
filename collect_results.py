@@ -28,9 +28,9 @@ if First:
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
-    func_str= 'EvansWebster6'
+    func_str= 'EvansWebster3'
     save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW6/'
+    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW3/'
 
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
