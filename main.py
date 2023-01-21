@@ -332,7 +332,7 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     losshistory, train_state = model.train(epochs=epochs, callbacks=[checker]) #Training Model batch_size = 10000
     # For plotting the residuals and the training history: isplot=True will plot
 
-    if exponent_approx==10:
+    if exponent_approx==10 or exponent_approx==6 :
         dde.saveplot(losshistory, train_state, issave=True, isplot=True)
     #else:
     #dde.saveplot(losshistory, train_state, issave=True, isplot=False)
