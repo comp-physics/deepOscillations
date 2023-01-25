@@ -36,7 +36,7 @@ if First:
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW3/'
 
-    func_strs=['RP']
+    func_str= 'RP'
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_RP/'
 
