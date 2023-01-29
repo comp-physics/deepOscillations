@@ -77,7 +77,7 @@ Z = 1
 
 with open('results_levin.csv', 'w', newline='') as csvfile:
     
-    fieldnames = ['Flop','Error']
+    fieldnames = ['Quad', 'Neuron', 'Layer' , 'Flop', 'Error']  # 'Quad': exponent_approx , 'Neuron': neurons ,'Layer': b_layer
     thewriter = csv.DictWriter(csvfile, fieldnames=fieldnames)
     thewriter.writeheader() 
 
@@ -134,7 +134,7 @@ with open('results_levin.csv', 'w', newline='') as csvfile:
 
                 marker = markers[counteri]   
 
-                thewriter.writerow({'Flop': x , 'Error': d['NN_MSEs_test'][0][0] })
+                thewriter.writerow({ 'Quad': exponent_approx , 'Neuron': neurons ,'Layer': b_layers ,  'Flop': x , 'Error': d['NN_MSEs_test'][0][0] })
 
                     #plt.loglog(normalized_MSE)
 
