@@ -134,7 +134,7 @@ with open('results_levin.csv', 'w', newline='') as csvfile:
 
                 marker = markers[counteri]   
 
-                thewriter.writerow({'Flop': x , 'Error': d['NN_MSEs_test'] })
+                thewriter.writerow({'Flop': x , 'Error': d['NN_MSEs_test'][0][0] })
 
                     #plt.loglog(normalized_MSE)
 
