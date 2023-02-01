@@ -38,14 +38,14 @@ s_array= [10000]
 n_array2= 1
 b_array2= 1
 
-itr1 = 'trapz'
+itr1 = 'mid'
 itr2 = 'mid'
 #itr = 'trapz'
 
 #/Users/anshumansinha/Desktop/Project/Res/
 
-func_str='Levin1'
-save_dir= '/Users/anshumansinha/Desktop/Project/Res/levin1_trapz_mid/Results3/'
+func_str='EvansWebster6'
+save_dir= '/Users/anshumansinha/Desktop/Project/Res/Results3_EW6/'
 
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)
@@ -75,7 +75,7 @@ Z = 1
 #clrs = sns.color_palette('husl', n_colors=NUM_COLORS)
 #ctr = 0 
 
-with open('results_levin.csv', 'w', newline='') as csvfile:
+with open( func_str+'.csv', 'w', newline='') as csvfile:
     
     fieldnames = ['Quad', 'Neuron', 'Layer' , 'Flop', 'Error']  # 'Quad': exponent_approx , 'Neuron': neurons ,'Layer': b_layer
     thewriter = csv.DictWriter(csvfile, fieldnames=fieldnames)

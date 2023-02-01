@@ -41,8 +41,8 @@ itr1 = 'mid'
 itr2 = 'mid'
 #itr = 'trapz'
 
-func_str='RP'
-save_dir= '/Users/anshumansinha/Desktop/Project/Res/Results3_RP/'
+func_str= 'Levin1'
+save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_Levin1/'
 
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)
