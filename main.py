@@ -199,7 +199,7 @@ elif func_str == 'sinx':
     y = np.zeros((points,samples))
 
     for i in range(0,samples):
-        k = np.random.random()*10+1
+        k = np.random.random()*10+195
         y[:,i] =oscil_func(x,k)
 
 else:
@@ -333,7 +333,7 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     # For plotting the residuals and the training history: isplot=True will plot
 
     if exponent_approx==10 or exponent_approx==6 :
-        dde.saveplot(losshistory, train_state, issave=True, isplot=True)
+        dde.saveplot(losshistory, train_state, issave=False, isplot=False)
     #else:
     #dde.saveplot(losshistory, train_state, issave=True, isplot=False)
 

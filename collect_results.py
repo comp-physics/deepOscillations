@@ -41,14 +41,18 @@ if First:
     save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_RP/'
 
 
-    func_str= 'Levin1'
+    func_str= 'sinx'
     save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_Levin1/'
+    save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx/'
 
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
     b_array= [2,3,4,5]
     s_array= [10000]
+
+    n_array=[2 ,3, 4, 5] 
+    b_array=[2, 3 ,4 ]
+    s_array=[1000]
 
     e_array2= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array2= 1
