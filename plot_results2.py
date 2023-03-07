@@ -34,6 +34,10 @@ n_array= [2,3,5,6,7]
 b_array= [2,3,4,5]
 s_array= [10000]
 
+n_array=[2 ,3, 4, 5] 
+b_array=[2, 3 ,4 ]
+s_array=[1000]
+
 n_array2= 1
 b_array2= 1
 
@@ -41,8 +45,8 @@ itr1 = 'mid'
 itr2 = 'mid'
 #itr = 'trapz'
 
-func_str= 'Levin1'
-save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_Levin1/'
+func_str= 'sinx'
+save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_5/'
 
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)

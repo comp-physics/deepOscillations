@@ -43,7 +43,7 @@ if First:
 
     func_str= 'sinx'
     save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx/'
+    save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_5/'
 
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
