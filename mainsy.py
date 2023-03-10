@@ -201,7 +201,7 @@ elif func_str == 'sinx':
     y = np.zeros((points,samples))
 
     for i in range(0,samples):
-        k = np.random.random()*10+45
+        k = np.random.random()*10+25
         y[:,i] =oscil_func(x,k)
 
 else:
