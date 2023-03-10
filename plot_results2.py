@@ -46,7 +46,7 @@ itr2 = 'mid'
 #itr = 'trapz'
 
 func_str= 'sinx'
-save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_5/'
+save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_45/'
 
 normalized_MSE = np.zeros(12,)
 normalized_MSE_NN = np.zeros(12,)
