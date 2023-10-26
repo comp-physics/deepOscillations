@@ -7,7 +7,7 @@ Parent code: ethan-pickering/deepOscillations
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
 
 
-> Traditional numerical methods for calculating oscillatory integrals often compromise between precision and computational efficiency. This repository introduces a groundbreaking approach, EfficientIntegrator-NN, that leverages the power of machine learning to revolutionize this space. Our unique method trains a neural network model on various instances of an oscillatory function, enabling it to learn and predict the integral values with remarkable accuracy and efficiency.
+> This work demonstrates the existence of a FLOP-efficient integrators for one-dimensional oscillatory integrals. The simple feed-forward architecture efficiently calculates oscillatory integrals with high precision and low computational cost compared to current numerical integration methods. The presented method holds applicability where numerical integrals of a one-dimensional oscillating functions are required either as an end-to-end problem or a sub-problem
 
 ![Project Image or GIF](https://github.com/comp-physics/deepOscillations/blob/master/doc/NN_integral.gif)
 
