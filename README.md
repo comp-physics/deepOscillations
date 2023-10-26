@@ -15,8 +15,8 @@ Parent code: ethan-pickering/deepOscillations
 
 Before you begin, ensure you have met the following requirements:
 
-- DeepOnet
-- Tensorflow 2.8
+- DeepXDE (pip install deepxde)
+- Tensorflow 3.8 or higher (pip install tensorflow)
 
 ## License
 
