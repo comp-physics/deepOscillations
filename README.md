@@ -31,6 +31,6 @@ Linux and macOS:
 ```bash
 git clone https://github.com/comp-physics/deepOscillations.git
 cd deepOscillations
-
+bash bash_main.sh 
 
 
