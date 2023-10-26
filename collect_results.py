@@ -23,44 +23,26 @@ if First:
     seed            = 1
     exponent_truth  = 13
     epochs          = 10000
+    
     func_str= 'Levin1'
-    #func_str= 'Levin2' 
     save_dir='./results/'
     save_dir='/Users/anshumansinha/Desktop/Project/results3/'
 
-    func_str= 'EvansWebster3'
-    save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW3/'
-
-    func_str= 'EvansWebster3'
-    save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_EW3/'
-
-    func_str= 'RP'
-    save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Results3_RP/'
-
-
-    func_str= 'sinx'
-    save_dir='./results/'
-    save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_45/'
-
+    # For the computed integral
     e_array= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array= [2,3,5,6,7]
     b_array= [2,3,4,5]
     s_array= [10000]
 
-    n_array=[2 ,3, 4, 5] 
-    b_array=[2, 3 ,4 ]
-    s_array=[1000]
-
+    # For the baseline integral
     e_array2= [1,2,3,4,5,6,7,8,9,10,11] 
     n_array2= 1
     b_array2= 1
     s_array2= 10
-    itr1 = 'mid'
+    
+    itr1 = 'mid' # itr = 'trapz'
     itr2 = 'mid'
-    #itr = 'trapz'
+    
 
     # Levin1_Seed_1_Samples_5000_X_13_4_epochs_100_blayers_7_neurons_125.mat'
 
