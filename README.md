@@ -29,9 +29,8 @@ To install <project_name>, follow these steps:
 
 Linux and macOS:
 ```bash
-git clone https://github.com/yourusername/projectname.git
-cd projectname
-./install.sh
+git clone https://github.com/comp-physics/deepOscillations.git
+cd deepOscillations
 
 
 
