@@ -20,7 +20,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## License
 
-This project is licensed under the terms of the [MIT license](https://opensource.org/licenses/MIT).
+<Need to check> This project is licensed under the terms of the [MIT license](https://opensource.org/licenses/MIT). 
 
 
 ## Installation
