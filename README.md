@@ -25,7 +25,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-To install <project_name>, follow these steps:
+To install deepOscillations, follow these steps:
 
 Linux and macOS:
 ```bash
