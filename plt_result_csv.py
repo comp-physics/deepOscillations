@@ -68,13 +68,6 @@ markers = ["o" , "x" , "D" , "s", "^", "*" ,  "o" , "x" , "D" , "s", "^", "*"]
 colors = ['b', 'g','r','c','m','y','b', 'g','r','c','m','y']
 Z = 1
 
-
-#NUM_COLORS = 10
-
-#sns.reset_orig()  # get default matplotlib styles back
-#clrs = sns.color_palette('husl', n_colors=NUM_COLORS)
-#ctr = 0 
-
 with open( func_str+'.csv', 'w', newline='') as csvfile:
     
     fieldnames = ['Quad', 'Neuron', 'Layer' , 'Flop', 'Error']  # 'Quad': exponent_approx , 'Neuron': neurons ,'Layer': b_layer
