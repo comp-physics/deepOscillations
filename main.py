@@ -4,6 +4,7 @@
 Created on Sun Mar 20 14:54:40 2022
 
 @author: ethanpickering
+@author (modifications only): anshumansinha16
 """
 import numpy as np
 import scipy.special as sp
