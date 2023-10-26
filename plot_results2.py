@@ -4,6 +4,7 @@
 Created on Thu Apr 28 17:18:56 2022
 
 @author: ethanpickering
+@author (modifications): anshumansinha16 
 """
 
 import numpy as np
@@ -29,21 +30,12 @@ n_array= [2,3,5,10,15]
 b_array= [2,3,5,7]
 s_array= [10000]
 
-e_array=[1,2,3,4,5,6,7,8,9,10,11] 
-n_array= [2,3,5,6,7]
-b_array= [2,3,4,5]
-s_array= [10000]
+n_array2= 1 # for baseline integral
+b_array2= 1 # for baseline integral
 
-n_array=[2 ,3, 4, 5] 
-b_array=[2, 3 ,4 ]
-s_array=[1000]
+itr1 = 'mid' 
+itr2 = 'mid' # #itr = 'trapz'
 
-n_array2= 1
-b_array2= 1
-
-itr1 = 'mid'
-itr2 = 'mid'
-#itr = 'trapz'
 
 func_str= 'sinx'
 save_dir='/Users/anshumansinha/Desktop/Project/Res/Res_sinx1_k_45/'
@@ -69,13 +61,6 @@ markers = ["o" , "x" , "D" , "s", "^", "*" ,  "o" , "x" , "D" , "s", "^", "*"]
 colors = ['b', 'g','r','c','m','y','b', 'g','r','c','m','y']
 Z = 1
 
-
-#NUM_COLORS = 10
-
-#sns.reset_orig()  # get default matplotlib styles back
-#clrs = sns.color_palette('husl', n_colors=NUM_COLORS)
-#ctr = 0 
-
 for exponent_approx in range(1,11):
 
     if(exponent_approx>=1):
@@ -87,12 +72,9 @@ for exponent_approx in range(1,11):
         xt  = 2**(exponent_approx)+1
         x_tr = np.append(x_tr, Z*(xt +1))
 
-    #normalized_MSE[exponent_approx] = d['normalized_MSE']
-
-    #color = next(ax._get_lines.prop_cycler)['color']
     color = colors[exponent_approx-1]
-
     counteri = 0 
+   
     for neurons in n_array:
         
         for b_layers in b_array:
@@ -101,19 +83,19 @@ for exponent_approx in range(1,11):
             
         # String Values
             save_str = func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)
-            #d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
-            #        '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat')
+            
+            #d = sio.loadmat(save_dir+func_str+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+'_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat') # For different save dir structure.
             d = sio.loadmat(save_dir + func_str+ itr1 +'_'+ str(exponent_approx)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', variable_names=['normalized_MSE', 'NN_MSEs_test'])
             p = sio.loadmat(save_dir+func_str+itr2+'_Seed_'+str(seed)+'_Samples_'+str(samples2)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
                     '_epochs_'+str(epochs)+'_blayers_'+str(b_array2)+'_neurons_'+str(n_array2)+'.mat')
-            # Error Metric
             
+           # Error Metric
             normalized_MSE[exponent_approx] = d['normalized_MSE']
             normalized_MSE2[exponent_approx] = p['normalized_MSE']
             normalized_MSE_NN[exponent_approx] = d['NN_MSEs_test'] 
-            #normalized_MSE_NN_obs[exponent_approx] = d['NN_MSEs_train']
+
             zin = 2**(exponent_approx) + 1 # (2**exponent_approx-1) more points 
-            # Previously 3 Jan 2023 zin = 2**(exponent_approx) + 1
+
             if(exponent_approx>=1):
                 #x = ((2*10*zin-1)*neurons + neurons) + ((2*neurons-1)+1) + (((2*neurons-1)*neurons + neurons)*(b_layers-1))
                 x = (b_layers-1)*(2*neurons*neurons) + 2*neurons*(1+Z*zin)*zin
