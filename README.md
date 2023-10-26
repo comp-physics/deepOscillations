@@ -1,7 +1,5 @@
 # deepOscillations
 
-
-![Version](https://img.shields.io/badge/version-1.0-blue)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
 
 Evaluating highly-oscillatory integrals via deep operator networks
