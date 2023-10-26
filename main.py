@@ -205,17 +205,19 @@ elif func_str == 'sinx':
 else:
     print('Functions not defined for integration')
     
-# Define the Trapezoidal Integrating Function
-#def Integrate_funcs(x,y,samples):
+# Define the Trapezoidal Integrating Function 
+
+#def Integrate_funcs_trapz(x,y,samples):
 #    I = np.zeros((samples,))
 #    for i in range(0,samples):
 #        I[i] = np.trapz(y[:,i], x)
 #    return I
 
 # Define the Trapezoidal Integrating Function
+
 # Define the Simpson Integrating Function
 
-#def Integrate_funcs(x,y,samples):
+#def Integrate_funcs_simp(x,y,samples):
 #    I = np.zeros((samples,))
 #    for i in range(0,samples):
 #        I[i] = integrate.simpson(y[:,i], x)
@@ -223,7 +225,7 @@ else:
 
 # Define the Midpoint Integrating Function
 
-def Integrate_funcs(x,y,samples):
+def Integrate_funcs_mid(x,y,samples):
     I = np.zeros((samples,))
     len(x)
     dx = (x[len(x)-1] - x[0])/(len(x)-2)
@@ -236,7 +238,7 @@ def Integrate_funcs(x,y,samples):
     return I
 
 # Integrate the functions
-I = Integrate_funcs(x,y,samples)
+I = Integrate_funcs_mid(x,y,samples)
 # Center and Normalize the data Determine 
 I_max = np.max(np.abs(I))
 
@@ -252,7 +254,7 @@ xs      = np.linspace(a,b,approx_points)
 #xs = a+ (b-a)*np.random.random(approx_points)
 inds    = ((xs-1)*(points-1)).astype(int)
 
-Is = Integrate_funcs(xs,y[inds,:],samples)
+Is = Integrate_funcs_mid(xs,y[inds,:],samples)
 Is = (Is - I_mean) / I_max
 
 Idiff = I-Is
@@ -328,8 +330,8 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     # Trainng will be done for 10,000 epochs.
     # isplot = True will generate 10 plots for each simulation.
 
-    
     losshistory, train_state = model.train(epochs=epochs, callbacks=[checker]) #Training Model batch_size = 10000
+    
     # For plotting the residuals and the training history: isplot=True will plot
 
     if exponent_approx==10 or exponent_approx==6 :
@@ -345,27 +347,16 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     normalized_MSE_NN = np.mean(NN_test_Idiff**2) / np.mean(I[split:samples]**2)
     normalized_MSE_NN_obs = np.mean(NN_obs_Idiff**2) / np.mean(I[0:split]**2)
 
-    # Remove the temporary folder for saving DeepONet files
-    # Update to only remove the files associated with it...
-    # shutil.rmtree('./model/')
-
     print('neuron',neurons)
     print('exponent_approx',exponent_approx)
-    
     print(normalized_MSE_NN)
-    #return normalized_MSE_NN, normalized_MSE_NN_obs
+    
     return normalized_MSE_NN
 
 #%%
 
 split = int(samples*0.75)
 NN_MSEs_test = DeepONet(samples, split, points, approx_points, y/np.max(np.abs(y)) , I, inds, neurons, epochs, b_layers)
-
-
-#sio.savemat(save_dir+func_str+itr+'_Seed_'+str(seed)+'_Samples_'+str(samples)+'_X_'+str(exponent_truth)+'_'+str(exponent_approx)+
-#            '_epochs_'+str(epochs)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', 
-#            {'NN_MSEs_test':NN_MSEs_test,
-#             'y':y, 'I':I, 'Is':Is, 'x':x, 'xs':xs, 'inds':inds, 'normalized_MSE':normalized_MSE})
 
 sio.savemat(save_dir + func_str+ itr +'_'+ str(exponent_approx)+'_blayers_'+str(b_layers)+'_neurons_'+str(neurons)+'.mat', 
             {'NN_MSEs_test':NN_MSEs_test,'normalized_MSE':normalized_MSE})
