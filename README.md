@@ -9,7 +9,7 @@ Parent code: ethan-pickering/deepOscillations
 
 > Traditional numerical methods for calculating oscillatory integrals often compromise between precision and computational efficiency. This repository introduces a groundbreaking approach, EfficientIntegrator-NN, that leverages the power of machine learning to revolutionize this space. Our unique method trains a neural network model on various instances of an oscillatory function, enabling it to learn and predict the integral values with remarkable accuracy and efficiency.
 
-![Project Image or GIF](http://url/to/image/or/gif)
+![Project Image or GIF](https://github.com/comp-physics/deepOscillations/blob/master/doc/NN_integral.gif)
 
 ## Dependencies
 
