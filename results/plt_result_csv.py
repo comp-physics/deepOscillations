@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 28 17:18:56 2022
 
-@author: ethanpickering
-"""
 
 import numpy as np
 import scipy.special as sp
