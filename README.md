@@ -1,21 +1,19 @@
-# deepOscillations
+## Neural networks can be FLOP-efficient integrators of 1D oscillatory integrands
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
 
-Evaluating highly-oscillatory integrals via deep operator networks
-
-> This work demonstrates the existence of FLOP-efficient integrators for one-dimensional oscillatory integrals. The simple feed-forward architecture efficiently calculates oscillatory integrals with high precision and low computational cost compared to current numerical integration methods. The presented method holds applicability where numerical integrals of one-dimensional oscillating functions are required either as an end-to-end problem or a sub-problem.
+> We demonstrate that neural networks can be FLOP-efficient integrators of one-dimensional oscillatory integrands. We train a feed-forward neural network to compute integrals of highly oscillatory 1D functions. The training set is a parametric combination of functions with varying characters and oscillatory behavior degrees. Numerical examples show that these networks are FLOP-efficient for sufficiently oscillatory integrands with an average FLOP gain of 1000 FLOPs. The network calculates oscillatory integrals better than traditional quadrature methods under the same computational budget or number of floating point operations. We find that feed-forward networks of 5 hidden layers are satisfactory for a relative accuracy of 0.001. The computational burden of inference of the neural network is relatively small, even compared to inner-product pattern quadrature rules. We postulate that our result follows from learning latent patterns in the oscillatory integrands that are otherwise opaque to traditional numerical integrators.
 
 ![Project Image or GIF](https://github.com/comp-physics/deepOscillations/blob/master/doc/NN_integral.gif)
 
-## Dependencies
+### Dependencies
 
 Before you begin, ensure you have met the following requirements:
 
 - DeepXDE (`pip install deepxde`)
 - Tensorflow 3.8 or higher (`pip install tensorflow`)
 
-## Installation
+### Installation
 
 To reproduce our results, follow these steps:
 ```bash
@@ -24,6 +22,6 @@ cd deepOscillations
 bash bash_main.sh
 ```
 
-## License
+### License
 
-This project is licensed under the terms of the [MIT license](https://opensource.org/licenses/MIT).
+[MIT](https://opensource.org/licenses/MIT).
