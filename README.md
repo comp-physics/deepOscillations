@@ -22,6 +22,10 @@ cd deepOscillations
 bash bash_main.sh
 ```
 
+### Acknowledgement
+
+The authors appreciate discussion with Dr. Ethan Pickering at an early stage of this work.
+
 ### License
 
-[MIT](https://opensource.org/licenses/MIT).
+[MIT](https://opensource.org/licenses/MIT)
