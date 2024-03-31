@@ -182,12 +182,6 @@ elif func_str == "RP":
             points,
         )
 
-elif func_str == "Levin_Breaker1":
-    print("not in yet")
-    # traingle functions
-    # heavyside functions
-    # w'(x) /= A(x) w(x)
-
 elif func_str == "sinx":
 
     def oscil_func(x, k):  # Levin paper Bessel function
@@ -331,7 +325,7 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     checker = dde.callbacks.ModelCheckpoint("/Users/anshumansinha/Desktop/Project/model/" + save_str + "model.ckpt", save_better_only=False, period=100)
 
     # Training for different input points from 2^4 to 2^11.
-    # Trainng will be done for 10,000 epochs.
+    # Training will be done for 10,000 epochs.
     # isplot = True will generate 10 plots for each simulation.
     losshistory, train_state = model.train(epochs=epochs, callbacks=[checker])  # Training Model batch_size = 10000
 
@@ -357,8 +351,8 @@ def DeepONet(samples, split, points, approx_points, y, I, inds, neurons, epochs,
     normalized_MSE_NN = np.mean(NN_test_Idiff**2) / np.mean(I[split:samples] ** 2)
     normalized_MSE_NN_obs = np.mean(NN_obs_Idiff**2) / np.mean(I[0:split] ** 2)
 
-    print("neuron", neurons)
-    print("exponent_approx", exponent_approx)
+    print("Neuron", neurons)
+    print("Exponent_approx.", exponent_approx)
     print(normalized_MSE_NN)
 
     return normalized_MSE_NN
