@@ -8,8 +8,6 @@ __Authors:__ Anshuman Sinha, Spencer H. Bryngelson (Georgia Tech)
 
 ### Dependencies
 
-Before you begin, ensure you have met the following requirements:
-
 - DeepXDE (`pip install deepxde`)
 - Tensorflow 3.8 or higher (`pip install tensorflow`)
 
