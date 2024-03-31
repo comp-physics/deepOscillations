@@ -9,7 +9,7 @@ __Authors:__ Anshuman Sinha, Spencer H. Bryngelson (Georgia Tech)
 ### Dependencies
 
 - DeepXDE (`pip install deepxde`)
-- Tensorflow 3.8 or higher (`pip install tensorflow`)
+- Tensorflow >= 3.8 (`pip install tensorflow`)
 
 ### Installation
 
