@@ -19,8 +19,16 @@ To reproduce our results, follow these steps:
 ```bash
 git clone https://github.com/comp-physics/deepOscillations.git
 cd deepOscillations
-bash bash_main.sh
+bash run.sh
 ```
+
+### Use
+
+- Choose the desired function, example `func_str='Levin1'`
+- Set the desired `n_array= (_) b_array=(_) s_array=(_)` values in the `bash_main.sh` script
+- Run the script. `bash run.sh`
+- Run `collect_results.py`
+- Plot the results using `plot_result.py`
 
 ### Acknowledgement
 
