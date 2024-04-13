@@ -27,7 +27,7 @@ bash run.sh
 - Choose the desired function, for example `func_str='Levin1'`
 - Set the desired `n_array= (_) b_array=(_) s_array=(_)` values in the `run.sh` script
 - Execute
-```console
+```bash
 bash run.sh
 python3 collect_results.py
 python3 plot_result.py
