@@ -13,20 +13,20 @@ Published at TMLR (2024) ISSN 2835-8856, link: https://openreview.net/pdf?id=5ps
 - DeepXDE (`pip install deepxde`)
 - Tensorflow >= 3.8 (`pip install tensorflow`)
 
-### Installation
+### Install
 
-To reproduce our results, follow these steps:
+To reproduce our results:
 ```bash
 git clone https://github.com/comp-physics/deepOscillations.git
 cd deepOscillations
 bash run.sh
 ```
 
-### Use
+### Example case
 
-- Choose the desired function, example `func_str='Levin1'`
+- Choose the desired function, for example `func_str='Levin1'`
 - Set the desired `n_array= (_) b_array=(_) s_array=(_)` values in the `run.sh` script
-- Run:
+- Execute
 ```console
 bash run.sh
 python3 collect_results.py
@@ -39,4 +39,4 @@ The authors appreciate discussion with Dr. Ethan Pickering at an early stage of 
 
 ### License
 
-[MIT](https://opensource.org/licenses/MIT)
+MIT
